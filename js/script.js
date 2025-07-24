@@ -1,7 +1,7 @@
 let userScore = 0;
 let compScore = 0;
 
-const choices = document.querySelectorAll(".choices");
+const choices = document.querySelectorAll(".choice");   // not chocies, it's chocie
 const msg = document.querySelector("#msg");
 const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
@@ -15,10 +15,10 @@ const genCompChoice = () => {
 const drawGame = () => {
     console.log("Game was Draw");
         msg.innerText = "Game was Draw. Play Again";
-        msg.style.backgroundColor = "12101b";
+        msg.style.backgroundColor = "#12101b";   // # was missing
 }
-
-const showWinner = () => {
+ // no parameter was passed in your function
+const showWinner = (userWin, userChoice, compChoice) => {
     if(userWin){
         userScore++;
         userScorePara.innerText = userScore;
@@ -27,7 +27,7 @@ const showWinner = () => {
     } else {
         compScore++;
         compScorePara.innerText = compScore;
-        msg.innerText = `You Win! ${compChoice} beats your ${userChoice}`;
+        msg.innerText = `You lose! ${compChoice} beats your ${userChoice}`;
         msg.style.backgroundColor = "red";
     }
 }
@@ -51,7 +51,8 @@ const playGame = (userChoice) => {
              //rock, paper
             userWin = compChoice === "rock" ? false : true ;
         }
-        showWinner(userWin);
+        // showWinner(userWin); wrong
+        showWinner(userWin, userChoice, compChoice); // correct parameters passed
     }
 }
 
@@ -63,5 +64,3 @@ choices.forEach((choice) => {
         playGame(userChoice);
     });
 });
-
-
