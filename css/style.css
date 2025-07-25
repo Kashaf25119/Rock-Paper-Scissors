@@ -74,3 +74,24 @@
     padding: 1rem;
     border-radius: 1rem;
 }
+
+@media (max-width: 600px;) {
+    .choice {
+    height: 125px;
+    width: 125px;
+    }
+
+    .choice img {
+    height: 100px;
+    width: 100px;
+    }
+
+    #user-score,
+    #comp-score {
+    font-size: 2rem;
+    }
+
+    #msg {
+        font-size: 1rem;
+    }
+}
